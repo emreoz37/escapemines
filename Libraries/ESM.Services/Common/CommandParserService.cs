@@ -122,7 +122,7 @@ namespace ESM.Services.Common
             if (string.IsNullOrWhiteSpace(instructions))
                 throw new ArgumentNullException(null,"Instructions parameter cannot be null or empty");
 
-            var instructionLines = instructions.Split(new[] { Environment.NewLine }, StringSplitOptions.None);
+            var instructionLines = instructions.Split(new[] { "\r\n", "\r", "\n" }, StringSplitOptions.None);
 
             if (instructionLines.Length < GameSettingsDefaults.MinimumFormatLength)
                 throw new ArgumentException($"The length of the settings cannot be lower than minimum length {GameSettingsDefaults.MinimumFormatLength}");
